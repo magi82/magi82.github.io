@@ -1,17 +1,3 @@
-# Easyjekyll
-
-이 Repository는 Jekyll Now를 수정하여 만든 것입니다. GitHub와 커맨드라인 명령어가 어렵게 느껴지는 초보자에게 도움이 되길 바랍니다.
-
-제가 Jekyll Now에 추가한 것은 다음과 같습니다.
-
-- 페이지를 나눠서 보여주기
-- 전체글을 한 곳에 모으기
-- 태그 시스템 적용하기
-- 태그 클라우드 페이지 만들기
-- 반응형 동영상 임베딩
- 
-자세한 설명 글은 [초보자를 위한 jekyll blog 시작하기](http://halryang.net/Jekyll-Blogging-For-Beginners/)를 참고하시기 바랍니다.
-
 # Jekyll Now
 
 **Jekyll** is a static site generator that's perfect for GitHub hosted blogs ([Jekyll Repository](https://github.com/jekyll/jekyll))
