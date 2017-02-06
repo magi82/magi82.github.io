@@ -4,12 +4,12 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+Game Programmer, Mobile Programmer
 
 ### More Information
 
-A place to include any other types of information that you'd like to include about yourself. 
+Gamebryo, UDK, Unreal Engine3, Unreal Engine4, Unity, Cocos2DX, Python, Android, IOS, Swift
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[bkhwang82@gmail.com](mailto:bkhwang82@gmail.com)
