@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Embed YouTube video responsively test
+comments: true
 tags: embed youtube responsive jekyll plugin
 ---
 <iframe width="560" height="315" src="//www.youtube.com/embed/DKDVhCWsgP4" frameborder="0" allowfullscreen></iframe>

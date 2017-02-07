@@ -1,6 +1,7 @@
 ---
 layout: post
 title: You're up and running!
+comments: true
 tags: first blog post jekyll test
 ---
 

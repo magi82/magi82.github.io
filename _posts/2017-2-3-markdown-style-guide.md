@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Markdown Style Guide
+comments: true
 tags: Markdown_Style_Guide
 ---
 
