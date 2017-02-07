@@ -11,13 +11,8 @@ layout: default
 
   <div class="date">
     Written on {{ page.date | date: "%B %e, %Y" }}
+    {% if page.comments %} • <a href="https://magi82.github.io{{ page.url }}#disqus_thread">0 Comments</a>{% endif %}
   </div>
-
-  <br>
-
-  {% if page.comments %}
-  • <a href="https://magi82.github.io{{ page.url }}#disqus_thread">0 Comments</a>
-  {% endif %}
 
   <br>
 
