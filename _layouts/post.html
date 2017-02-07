@@ -15,6 +15,10 @@ layout: default
 
   <br>
 
+  {% if page.comments %} • <a href="https://magi82.github.io{{ page.url }}#disqus_thread">0 Comments</a>{% endif %}
+
+  <br>
+
   <div>
     <ul class="tags post-tags cf">
       <li>Tagged:</li>
@@ -38,8 +42,6 @@ layout: default
 <!-- facebook config end -->
 
 {% include disqus.html disqus_identifier=page.disqus_identifier %}
-
-{% if page.comments %} • <a href="https://magi82.github.io{{ page.url }}#disqus_thread">0 Comments</a>{% endif %}
 
 </article>
 
