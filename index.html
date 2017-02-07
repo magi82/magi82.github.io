@@ -6,9 +6,7 @@ layout: default
   {% for post in paginator.posts %}
     <article class="post">
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-
-      <a href="https://magi82.github.io{{ post.url }}#disqus_thread">0 Comments</a>
+      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a><a href="https://magi82.github.io{{ post.url }}#disqus_thread">0 Comments</a></h1>
 
       <div class="entry">
         {{ post.content | strip_html | truncatewords:40}}
