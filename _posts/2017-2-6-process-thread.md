@@ -2,6 +2,7 @@
 layout: post
 title: process와 thread에 대한 정리
 tags: os
+comment: true
 ---
 
 안녕하세요. 마기입니다. 개발 관련 블로그 정리 첫 시간입니다.
