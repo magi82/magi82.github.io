@@ -1,7 +1,7 @@
 ---
 layout: post
 title: process와 thread에 대한 정리
-comment: true
+comments: true
 tags: os
 ---
 
