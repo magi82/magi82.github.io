@@ -4,14 +4,16 @@ layout: default
 <!-- This loops through the paginated posts -->
 <div class="posts">
   {% for post in paginator.posts %}
-    <article class="post">    
-      
+    <article class="post">
+
       <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+
+      <a href="https://magi82.github.io{{ post.url }}#disqus_thread">0 Comments</a>
 
       <div class="entry">
         {{ post.content | strip_html | truncatewords:40}}
       </div>
-      
+
       <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">더 읽기</a>
     </article>
   {% endfor %}
