@@ -2,7 +2,7 @@
 layout: post
 title: MVC, MVP, MVVM 비교
 comments: true
-tags: Android, MVC, MVP, MVVM
+tags: Android MVC MVP MVVM
 ---
 
 안녕하세요. 마기입니다. 개발 관련 블로그 정리 두번째 시간입니다.
