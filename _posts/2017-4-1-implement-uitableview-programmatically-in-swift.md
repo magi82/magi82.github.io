@@ -141,7 +141,7 @@ extension TableViewController: UITableViewDataSource {
 
 테이블뷰셀을 터치시 해당 내용이 콘솔에 print 되는 코드 입니다.
 
-```Swift
+```swift
 extension TableViewController: UITableViewDelegate {
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     print(items[indexPath.row])
