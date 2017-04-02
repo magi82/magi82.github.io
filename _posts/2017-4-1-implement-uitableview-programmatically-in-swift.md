@@ -17,13 +17,13 @@ tags: ios Swift UITableView
 
 해당 코드는 Swift3 기반입니다.
 
-#### 프로젝트 생성
+### 프로젝트 생성
 
-xcode에서 New -> Project -> Single View Application으로
+xcode에서 `New -> Project -> Single View Application`으로
 
 프로젝트를 생성합니다. 기본적으로 ViewController만 있으면 됩니다.
 
-#### 멤버 변수 선언 및 생성
+### 멤버 변수 선언 및 생성
 
 ViewController 클래스를 열고 그냥 멤버변수로 UITableView를 선언 해주세요.
 
@@ -34,7 +34,7 @@ let myTableView: UITableView()
 let items: [String] = ["magi82", "swift", "ios"]
 ```
 
-#### UITableViewDelegate, UITableViewDataSource 추가
+### UITableViewDelegate, UITableViewDataSource 추가
 
 UITableView와의 연동을 위한 프로토콜을 구현 해보도록 합시다.
 
@@ -48,9 +48,14 @@ extension TableViewController: UITableViewDelegate {}
 extension TableViewController: UITableViewDataSource {}
 ```
 
-#### UITableView 프로퍼티 세팅후 ViewController에 추가
+### UITableView 프로퍼티 세팅후 ViewController에 추가
 
 먼저 테이블뷰에 연동할 프로토콜이 구현된 클래스를 넣어줍니다.
+
+```swift
+self.myTableView.dataSource = self
+self.myTableView.delegate = self
+```
 
 그리고 테이블뷰에 표현될 테이블뷰셀을 등록 해줍니다.
 
@@ -59,8 +64,6 @@ extension TableViewController: UITableViewDataSource {}
 세팅이 끝나면 실제 뷰컨트롤러의 view에 추가를 해줘야 합니다.
 
 ```swift
-self.myTableView.dataSource = self
-self.myTableView.delegate = self
 self.myTableView.register(UITableViewCell.self,
                         forCellReuseIdentifier: "TableViewCell")
 self.view.addSubview(self.myTableView)
@@ -82,7 +85,7 @@ self.myTableView.translatesAutoresizingMaskIntoConstraints = false
 > 오픈소스로 제약사항을 쉽고 깔끔하게 사용할수 있습니다.<br>
 > 그중에 유명한 [snapkit](https://github.com/SnapKit/SnapKit/)을 추천드립니다.<br>
 
-#### UITableViewDelegate, UITableViewDataSource 프로토콜 구현
+### UITableViewDelegate, UITableViewDataSource 프로토콜 구현
 
 이제 실제 테이블뷰에서 사용할 두가지 프로토콜을 구현해봅시다.
 
@@ -124,7 +127,7 @@ extension TableViewController: UITableViewDelegate {
 }
 ```
 
-#### 풀 소스
+### 풀 소스
 
 자 이제 구현이 끝났습니다. 설명을 위해 띄엄띄엄 코드를 올렸더니 햇갈릴거 같아서
 
@@ -194,7 +197,7 @@ extension TableViewController: UITableViewDataSource {
 }
 ```
 
-#### 결과
+### 결과
 
 결과 스크린샷을 보시면 아시겠지만 3개의 리스트가 테이블뷰에 보여지고 있고 터치시
 
