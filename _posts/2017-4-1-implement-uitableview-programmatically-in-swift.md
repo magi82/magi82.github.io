@@ -17,11 +17,15 @@ tags: ios Swift UITableView
 
 해당 코드는 Swift3 기반입니다.
 
+<br>
+
 ### 프로젝트 생성
 
-xcode에서 `New -> Project -> Single View Application`으로
+xcode에서 프로젝트를 생성합니다.
 
-프로젝트를 생성합니다. 기본적으로 ViewController만 있으면 됩니다.
+기본적으로 ViewController만 있으면 됩니다.
+
+**New -> Project -> Single View Application**
 
 ### 멤버 변수 선언 및 생성
 
@@ -75,10 +79,18 @@ self.view.addSubview(self.myTableView)
 
 ```swift
 self.myTableView.translatesAutoresizingMaskIntoConstraints = false
-    self.view.addConstraint(NSLayoutConstraint(item: self.myTableView, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 0))
-    self.view.addConstraint(NSLayoutConstraint(item: self.myTableView, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1.0, constant: 0))
-    self.view.addConstraint(NSLayoutConstraint(item: self.myTableView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 0))
-    self.view.addConstraint(NSLayoutConstraint(item: self.myTableView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: 0))
+    self.view.addConstraint(NSLayoutConstraint(item: self.myTableView,
+      attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top,
+      multiplier: 1.0, constant: 0))
+    self.view.addConstraint(NSLayoutConstraint(item: self.myTableView,
+      attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom,
+      multiplier: 1.0, constant: 0))
+    self.view.addConstraint(NSLayoutConstraint(item: self.myTableView,
+      attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading,
+      multiplier: 1.0, constant: 0))
+    self.view.addConstraint(NSLayoutConstraint(item: self.myTableView,
+      attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing,
+      multiplier: 1.0, constant: 0))
 ```
 
 > note: 제약사항을 코드로 처리하기엔 너무 지저분해 보이네요.<br>
