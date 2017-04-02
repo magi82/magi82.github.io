@@ -21,11 +21,13 @@ tags: ios Swift UITableView
 
 ### 프로젝트 생성
 
-xcode에서 프로젝트를 생성합니다.
+xcode에서 프로젝트를 생성합니다. 기본적으로 ViewController만 있으면 됩니다.
 
-기본적으로 ViewController만 있으면 됩니다.
+```
+Xode -> New -> Project -> Single View Application
+```
 
-**New -> Project -> Single View Application**
+<br>
 
 ### 멤버 변수 선언 및 생성
 
@@ -37,6 +39,8 @@ ViewController 클래스를 열고 그냥 멤버변수로 UITableView를 선언 
 let myTableView: UITableView()
 let items: [String] = ["magi82", "swift", "ios"]
 ```
+
+<br>
 
 ### UITableViewDelegate, UITableViewDataSource 추가
 
@@ -51,6 +55,8 @@ extension TableViewController: UITableViewDelegate {}
 
 extension TableViewController: UITableViewDataSource {}
 ```
+
+<br>
 
 ### UITableView 프로퍼티 세팅후 ViewController에 추가
 
@@ -83,19 +89,21 @@ self.myTableView.translatesAutoresizingMaskIntoConstraints = false
       attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top,
       multiplier: 1.0, constant: 0))
     self.view.addConstraint(NSLayoutConstraint(item: self.myTableView,
-      attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom,
-      multiplier: 1.0, constant: 0))
+      attribute: .bottom, relatedBy: .equal, toItem: self.view,
+      attribute: .bottom, multiplier: 1.0, constant: 0))
     self.view.addConstraint(NSLayoutConstraint(item: self.myTableView,
-      attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading,
-      multiplier: 1.0, constant: 0))
+      attribute: .leading, relatedBy: .equal, toItem: self.view,
+      attribute: .leading, multiplier: 1.0, constant: 0))
     self.view.addConstraint(NSLayoutConstraint(item: self.myTableView,
-      attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing,
-      multiplier: 1.0, constant: 0))
+      attribute: .trailing, relatedBy: .equal, toItem: self.view,
+      attribute: .trailing, multiplier: 1.0, constant: 0))
 ```
 
 > note: 제약사항을 코드로 처리하기엔 너무 지저분해 보이네요.<br>
 > 오픈소스로 제약사항을 쉽고 깔끔하게 사용할수 있습니다.<br>
 > 그중에 유명한 [snapkit](https://github.com/SnapKit/SnapKit/)을 추천드립니다.<br>
+
+<br>
 
 ### UITableViewDelegate, UITableViewDataSource 프로토콜 구현
 
@@ -113,12 +121,15 @@ withIdentifier는 아까 사용할 테이블뷰셀을 등록할때 정했던 Str
 
 ```swift
 extension TableViewController: UITableViewDataSource {
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(_ tableView: UITableView,
+                  numberOfRowsInSection section: Int) -> Int {
     return self.items.count
   }
 
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell")! as UITableViewCell
+  func tableView(_ tableView: UITableView,
+                  cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell: UITableViewCell = tableView.dequeueReusableCell
+                    (withIdentifier: "TableViewCell")! as UITableViewCell
 
     cell.textLabel?.text = items[indexPath.row]
 
@@ -138,6 +149,8 @@ extension TableViewController: UITableViewDelegate {
   }
 }
 ```
+
+<br>
 
 ### 풀 소스
 
@@ -176,10 +189,19 @@ class ViewController: UIViewController {
     self.view.addSubview(self.myTableView)
 
     self.myTableView.translatesAutoresizingMaskIntoConstraints = false
-    self.view.addConstraint(NSLayoutConstraint(item: self.myTableView, attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top, multiplier: 1.0, constant: 0))
-    self.view.addConstraint(NSLayoutConstraint(item: self.myTableView, attribute: .bottom, relatedBy: .equal, toItem: self.view, attribute: .bottom, multiplier: 1.0, constant: 0))
-    self.view.addConstraint(NSLayoutConstraint(item: self.myTableView, attribute: .leading, relatedBy: .equal, toItem: self.view, attribute: .leading, multiplier: 1.0, constant: 0))
-    self.view.addConstraint(NSLayoutConstraint(item: self.myTableView, attribute: .trailing, relatedBy: .equal, toItem: self.view, attribute: .trailing, multiplier: 1.0, constant: 0))
+    self.myTableView.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addConstraint(NSLayoutConstraint(item: self.myTableView,
+          attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top,
+          multiplier: 1.0, constant: 0))
+        self.view.addConstraint(NSLayoutConstraint(item: self.myTableView,
+          attribute: .bottom, relatedBy: .equal, toItem: self.view,
+          attribute: .bottom, multiplier: 1.0, constant: 0))
+        self.view.addConstraint(NSLayoutConstraint(item: self.myTableView,
+          attribute: .leading, relatedBy: .equal, toItem: self.view,
+          attribute: .leading, multiplier: 1.0, constant: 0))
+        self.view.addConstraint(NSLayoutConstraint(item: self.myTableView,
+          attribute: .trailing, relatedBy: .equal, toItem: self.view,
+          attribute: .trailing, multiplier: 1.0, constant: 0))
   }
 
 }
@@ -195,12 +217,15 @@ extension TableViewController: UITableViewDelegate {
 // MARK: UITableViewDataSource
 
 extension TableViewController: UITableViewDataSource {
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(_ tableView: UITableView,
+                  numberOfRowsInSection section: Int) -> Int {
     return self.items.count
   }
 
-  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "TableViewCell")! as UITableViewCell
+  func tableView(_ tableView: UITableView,
+                  cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell: UITableViewCell = tableView.dequeueReusableCell
+                    (withIdentifier: "TableViewCell")! as UITableViewCell
 
     cell.textLabel?.text = items[indexPath.row]
 
@@ -208,6 +233,8 @@ extension TableViewController: UITableViewDataSource {
   }
 }
 ```
+
+<br>
 
 ### 결과
 
