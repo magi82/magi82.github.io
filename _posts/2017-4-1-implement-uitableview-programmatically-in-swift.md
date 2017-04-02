@@ -52,7 +52,6 @@ UITableView와의 연동을 위한 프로토콜을 구현 해보도록 합시다
 
 ```swift
 extension TableViewController: UITableViewDelegate {}
-
 extension TableViewController: UITableViewDataSource {}
 ```
 
@@ -85,18 +84,18 @@ self.view.addSubview(self.myTableView)
 
 ```swift
 self.myTableView.translatesAutoresizingMaskIntoConstraints = false
-    self.view.addConstraint(NSLayoutConstraint(item: self.myTableView,
-      attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top,
-      multiplier: 1.0, constant: 0))
-    self.view.addConstraint(NSLayoutConstraint(item: self.myTableView,
-      attribute: .bottom, relatedBy: .equal, toItem: self.view,
-      attribute: .bottom, multiplier: 1.0, constant: 0))
-    self.view.addConstraint(NSLayoutConstraint(item: self.myTableView,
-      attribute: .leading, relatedBy: .equal, toItem: self.view,
-      attribute: .leading, multiplier: 1.0, constant: 0))
-    self.view.addConstraint(NSLayoutConstraint(item: self.myTableView,
-      attribute: .trailing, relatedBy: .equal, toItem: self.view,
-      attribute: .trailing, multiplier: 1.0, constant: 0))
+self.view.addConstraint(NSLayoutConstraint(item: self.myTableView,
+  attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top,
+  multiplier: 1.0, constant: 0))
+self.view.addConstraint(NSLayoutConstraint(item: self.myTableView,
+  attribute: .bottom, relatedBy: .equal, toItem: self.view,
+  attribute: .bottom, multiplier: 1.0, constant: 0))
+self.view.addConstraint(NSLayoutConstraint(item: self.myTableView,
+  attribute: .leading, relatedBy: .equal, toItem: self.view,
+  attribute: .leading, multiplier: 1.0, constant: 0))
+self.view.addConstraint(NSLayoutConstraint(item: self.myTableView,
+  attribute: .trailing, relatedBy: .equal, toItem: self.view,
+  attribute: .trailing, multiplier: 1.0, constant: 0))
 ```
 
 > note: 제약사항을 코드로 처리하기엔 너무 지저분해 보이네요.<br>
@@ -189,19 +188,18 @@ class ViewController: UIViewController {
     self.view.addSubview(self.myTableView)
 
     self.myTableView.translatesAutoresizingMaskIntoConstraints = false
-    self.myTableView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addConstraint(NSLayoutConstraint(item: self.myTableView,
-          attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top,
-          multiplier: 1.0, constant: 0))
-        self.view.addConstraint(NSLayoutConstraint(item: self.myTableView,
-          attribute: .bottom, relatedBy: .equal, toItem: self.view,
-          attribute: .bottom, multiplier: 1.0, constant: 0))
-        self.view.addConstraint(NSLayoutConstraint(item: self.myTableView,
-          attribute: .leading, relatedBy: .equal, toItem: self.view,
-          attribute: .leading, multiplier: 1.0, constant: 0))
-        self.view.addConstraint(NSLayoutConstraint(item: self.myTableView,
-          attribute: .trailing, relatedBy: .equal, toItem: self.view,
-          attribute: .trailing, multiplier: 1.0, constant: 0))
+    self.view.addConstraint(NSLayoutConstraint(item: self.myTableView,
+      attribute: .top, relatedBy: .equal, toItem: self.view, attribute: .top,
+      multiplier: 1.0, constant: 0))
+    self.view.addConstraint(NSLayoutConstraint(item: self.myTableView,
+      attribute: .bottom, relatedBy: .equal, toItem: self.view,
+      attribute: .bottom, multiplier: 1.0, constant: 0))
+    self.view.addConstraint(NSLayoutConstraint(item: self.myTableView,
+      attribute: .leading, relatedBy: .equal, toItem: self.view,
+      attribute: .leading, multiplier: 1.0, constant: 0))
+    self.view.addConstraint(NSLayoutConstraint(item: self.myTableView,
+      attribute: .trailing, relatedBy: .equal, toItem: self.view,
+      attribute: .trailing, multiplier: 1.0, constant: 0))
   }
 
 }
