@@ -55,6 +55,8 @@ UITableView와의 연동을 위한 프로토콜을 구현 해보도록 합시다
 
 <script src="https://gist.github.com/magi82/61a49ee3386b439af641195dd007b991.js"></script>
 
+<br>
+
 그리고 테이블뷰에 표현될 테이블뷰셀을 등록 해줍니다.
 
 일단은 기본 테이블뷰셀을 사용하도록 하겠습니다.
@@ -62,6 +64,8 @@ UITableView와의 연동을 위한 프로토콜을 구현 해보도록 합시다
 세팅이 끝나면 실제 뷰컨트롤러의 view에 추가를 해줘야 합니다.
 
 <script src="https://gist.github.com/magi82/d5ec07972c5391e72000684db17d64cb.js"></script>
+
+<br>
 
 단순히 코드로만 만들기 위해 테이블뷰의 크기도 직접 설정을 해주도록 합시다.
 
@@ -90,6 +94,8 @@ withIdentifier는 아까 사용할 테이블뷰셀을 등록할때 정했던 Str
 넣어야 합니다.
 
 <script src="https://gist.github.com/magi82/d6a3d746bf4bc7be0adee07f18d0134a.js"></script>
+
+<br>
 
 마지막으로 UITableViewDelegate를 구현합시다.
 
