@@ -5,8 +5,6 @@ comments: true
 tags: ios localization
 ---
 
-<script src="https://gist.github.com/magi82/994fb693559a478c4824f9c3d1d30dee.js"></script>
-
 안녕하세요. 마기입니다. 이번 포스트는 ios의 localization(지역화)가
 
 적용되는 순서에 대해서 간단하게 정리 하려고 합니다.
