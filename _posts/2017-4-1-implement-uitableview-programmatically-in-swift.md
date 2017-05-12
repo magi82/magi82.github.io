@@ -33,7 +33,7 @@ ViewController 클래스를 열고 그냥 멤버변수로 UITableView를 선언 
 
 실제로 테스트할 변수도 추가해 주도록 합시다.
 
-<script src="https://gist.github.com/magi82/2fb1532765a1ca8cbee81fe7477fcbd6.js?file=source1.swift"></script>
+{% gist parkr/2fb1532765a1ca8cbee81fe7477fcbd6 source1.swift %}
 
 <br>
 
