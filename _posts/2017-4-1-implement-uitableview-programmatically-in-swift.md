@@ -33,7 +33,7 @@ ViewController 클래스를 열고 그냥 멤버변수로 UITableView를 선언 
 
 실제로 테스트할 변수도 추가해 주도록 합시다.
 
-<script src="https://gist.github.com/magi82/19c1f0c06992a608e8c4b06c50b2799f.js"></script>
+<script src="https://gist.github.com/magi82/2fb1532765a1ca8cbee81fe7477fcbd6.js?file=1.swift"></script>
 
 <br>
 
@@ -45,7 +45,7 @@ UITableView와의 연동을 위한 프로토콜을 구현 해보도록 합시다
 
 요즘은 extension을 많이 사용 합니다.
 
-<script src="https://gist.github.com/magi82/45e4e175849b50dacd611eaa1d3413e5.js"></script>
+<script src="https://gist.github.com/magi82/2fb1532765a1ca8cbee81fe7477fcbd6.js?file=2.swift"></script>
 
 <br>
 
@@ -53,7 +53,7 @@ UITableView와의 연동을 위한 프로토콜을 구현 해보도록 합시다
 
 먼저 테이블뷰에 연동할 프로토콜이 구현된 클래스를 넣어줍니다.
 
-<script src="https://gist.github.com/magi82/61a49ee3386b439af641195dd007b991.js"></script>
+<script src="https://gist.github.com/magi82/2fb1532765a1ca8cbee81fe7477fcbd6.js?file=3.swift"></script>
 
 <br>
 
@@ -63,7 +63,7 @@ UITableView와의 연동을 위한 프로토콜을 구현 해보도록 합시다
 
 세팅이 끝나면 실제 뷰컨트롤러의 view에 추가를 해줘야 합니다.
 
-<script src="https://gist.github.com/magi82/d5ec07972c5391e72000684db17d64cb.js"></script>
+<script src="https://gist.github.com/magi82/2fb1532765a1ca8cbee81fe7477fcbd6.js?file=4.swift"></script>
 
 <br>
 
@@ -71,7 +71,7 @@ UITableView와의 연동을 위한 프로토콜을 구현 해보도록 합시다
 
 제약사항을 뷰컨트롤러의 view와 같은 크기로 맞춥니다.
 
-<script src="https://gist.github.com/magi82/eeb86efe1b567b2fc1169a2781fbfe45.js"></script>
+<script src="https://gist.github.com/magi82/2fb1532765a1ca8cbee81fe7477fcbd6.js?file=5.swift"></script>
 
 > note: 제약사항을 코드로 처리하기엔 너무 지저분해 보이네요.<br>
 > 오픈소스로 제약사항을 쉽고 깔끔하게 사용할수 있습니다.<br>
@@ -93,7 +93,7 @@ withIdentifier는 아까 사용할 테이블뷰셀을 등록할때 정했던 Str
 
 넣어야 합니다.
 
-<script src="https://gist.github.com/magi82/d6a3d746bf4bc7be0adee07f18d0134a.js"></script>
+<script src="https://gist.github.com/magi82/2fb1532765a1ca8cbee81fe7477fcbd6.js?file=6.swift"></script>
 
 <br>
 
@@ -101,7 +101,7 @@ withIdentifier는 아까 사용할 테이블뷰셀을 등록할때 정했던 Str
 
 테이블뷰셀을 터치시 해당 내용이 콘솔에 print 되는 코드 입니다.
 
-<script src="https://gist.github.com/magi82/bc6cdf077a3a5b6808bf2734bcc8d2d9.js"></script>
+<script src="https://gist.github.com/magi82/2fb1532765a1ca8cbee81fe7477fcbd6.js?file=7.swift"></script>
 
 <br>
 
@@ -111,7 +111,7 @@ withIdentifier는 아까 사용할 테이블뷰셀을 등록할때 정했던 Str
 
 아래 풀소스를 적어 두었습니다.
 
-<script src="https://gist.github.com/magi82/2fb1532765a1ca8cbee81fe7477fcbd6.js?file=UITableViewController_full_source.swift"></script>
+<script src="https://gist.github.com/magi82/2fb1532765a1ca8cbee81fe7477fcbd6.js?file=UITableViewControllerFullSource.swift"></script>
 
 <br>
 
