@@ -111,7 +111,7 @@ withIdentifier는 아까 사용할 테이블뷰셀을 등록할때 정했던 Str
 
 아래 풀소스를 적어 두었습니다.
 
-<script src="https://gist.github.com/magi82/2fb1532765a1ca8cbee81fe7477fcbd6.js"></script>
+<script src="https://gist.github.com/magi82/2fb1532765a1ca8cbee81fe7477fcbd6.js?file=UITableViewController_full_source.swift"></script>
 
 <br>
 
