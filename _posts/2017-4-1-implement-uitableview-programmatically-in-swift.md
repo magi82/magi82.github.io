@@ -23,9 +23,7 @@ tags: ios Swift UITableView
 
 xcode에서 프로젝트를 생성합니다. 기본적으로 ViewController만 있으면 됩니다.
 
-```
-Xode -> New -> Project -> Single View Application
-```
+> Xode -> New -> Project -> Single View Application
 
 <br>
 
