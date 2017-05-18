@@ -12,7 +12,7 @@ cocoapods에 깔끔하게 등록하는 방법을 포스팅 하려고 합니다.
 cocoapods는 Obj-C, Swift 라이브러리를 설치, 배포 할수 있는
 <br>
 의존성 관리 도구 입니다.
-<br>
+
 일반적으로는 iOS 개발시 다른 개발자들의 라이브러리를 이용할 목적으로
 <br>
 사용하지만, 라이브러리를 오픈소스로 만들어서 기여하거나
@@ -20,7 +20,7 @@ cocoapods는 Obj-C, Swift 라이브러리를 설치, 배포 할수 있는
 본인이 사용하는 코드들을 모아두고 여러 프로젝트에서 쉽게 사용할 목적으로
 <br>
 라이브러리를 등록하기도 합니다.
-<br>
+
 보통은 pod에서 지원하는 라이브러리 프레임워크 생성 명령을 통해서
 <br>
 라이브러리 프레임워크를 만들고 배포하지만, 이번 포스트에서는
@@ -63,23 +63,7 @@ spec 파일만 따로 만드는 방법 또한 cocoapods 가이드 문서에 있�
 
 #### podSpec 파일 만들기
 
-```
-Pod::Spec.new do |s|
-  s.name             = '[YOUR POD NAME]'
-  s.version          = '0.1.0'
-  s.summary          = '[YOUR POD SUMMARY]'
-  s.description      = <<-DESC
-                      [YOUR POD DESCRIPTION]
-                      DESC
-  s.homepage         = '[GITHUB URL]'
-  s.screenshots      = '[IMAGE URL 1]', '[IMAGE URL 2]'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { '[ACCOUNT]' => '[E-MAIL]' }
-  s.source           = { :git => '[GITHUB URL].git', :tag => s.version.to_s }
-  s.ios.deployment_target = '8.0'
-  s.source_files = '[SOURCE PATH]'
-end
-```
+{% gist magi82/458f64bc369869662b1a1220eed6195c podSpec1.ruby %}
 
 기본적으로 이정도만 작성해도 일반적으로 올리는데 문제는 없습니다.
 <br>
@@ -123,25 +107,7 @@ podSpec 파일은 github의 root path에 위치해야 합니다.
 <br>
 참고해서 본인에 맞게 수정해서 사용하세요.
 
-```
-Pod::Spec.new do |s|
-  s.name             = 'PodRegistTest'
-  s.version          = '0.1.0'
-  s.summary          = 'test PodRegistTest.'
-  s.description      = <<-DESC
-Simple test the PodRegistTest!!!
-                       DESC
-  s.homepage         = 'https://github.com/magi82/PodRegistTest'
-  s.screenshots      = 'https://magi82.github.io/images/01.png',
-                       'https://magi82.github.io/images/02.png',
-                       'https://magi82.github.io/images/03.png'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'magi82' => 'bkhwang82@gmail.com' }
-  s.source           = { :git => 'https://github.com/magi82/PodRegistTest.git', :tag => s.version.to_s }
-  s.ios.deployment_target = '8.0'
-  s.source_files = 'Sources/*.swift'
-end
-```
+{% gist magi82/458f64bc369869662b1a1220eed6195c podSpec2.ruby %}
 
 podSpec 파일 작성을 완료했으면 제대로 작성 되었는지
 <br>
