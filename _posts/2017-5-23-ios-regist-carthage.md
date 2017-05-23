@@ -41,6 +41,8 @@ carthage를 많이 지원하고 있지 않습니다.
 
 자 그럼 이제 carthage를 지원하기 위해서 하나하나 시작해보도록 하겠습니다.
 
+<br>
+
 #### framework 생성하기
 
 carthage는 framework를 이용합니다.
@@ -90,6 +92,8 @@ clone 된 repo에 복사하도록 하겠습니다.
 <br>
 > 굳이 이렇게 하지 않아도 됩니다.
 
+<br>
+
 #### framework project 세팅하기
 
 자! 이제 프로젝트를 열어 보겠습니다. 아래 스크린샷처럼 빈 프로젝트가 보입니다.
@@ -132,6 +136,8 @@ Sources 폴더에 있는 swift 파일들을 등록할때 주의점이 있습니�
 <br>
 빌드가 성공적인지 확인합니다.
 
+<br>
+
 #### github 세팅하기
 
 github에 해줘야할 부분은 거의 없습니다.
@@ -147,6 +153,8 @@ carthage도 cocoapods와 마찬가지로 tag를 통해 버전 체크를 합니�
 ![09](../images/2017-5-23-ios-regist-carthage/09.png)
 
 자! 이렇게만 하면 끝입니다.
+
+<br>
 
 #### 정상인지 확인하기
 
