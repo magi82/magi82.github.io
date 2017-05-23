@@ -77,23 +77,25 @@ clone 된 repo에 복사하도록 하겠습니다.
 ![03](../images/2017-5-23-ios-regist-carthage/03.png)
 
 > 이렇게 하는 이유는  git repo의 root에 xcodeproj를 구성해야 하는데
-
+<br>
 > 이미 그전에 cocoapods를 등록하면서 생성된 코드 및 파일들이 있습니다.
-
+<br>
 > xcode를 통해서 프로젝트를 만들면 replace 되면서 기존 파일들이
-
+<br>
 > 전부 지워지므로, 불편하지만 위의 방법대로 진행하였습니다.
-
+<br>
 > 더 좋은 방법이 있으면 피드백 부탁드립니다.
-
+<br>
 > 물론 cocoapods를 생각하지 않고 처음부터 carthage를 적용한다면
-
+<br>
 > 굳이 이렇게 하지 않아도 됩니다.
 
 #### framework project 세팅하기
 
 자! 이제 프로젝트를 열어 보겠습니다. 아래 스크린샷처럼 빈 프로젝트가 보입니다.
+
 ![04](../images/2017-5-23-ios-regist-carthage/04.png)
+
 여기서 이제 Sources 폴더에 있는 swift 파일들을 등록 시켜야 합니다.
 <br>
 Sources 폴더에 있는 swift 파일들을 등록할때 주의점이 있습니다.
@@ -113,7 +115,9 @@ Sources 폴더에 있는 swift 파일들을 등록할때 주의점이 있습니�
 그리고 프로젝트의 target에서 *Build Phases -> Compile Sources* 에
 <br>
 소스 파일이 등록된게 보이면 정상적입니다.
+
 ![06](../images/2017-5-23-ios-regist-carthage/06.png)
+
 다음으로 해야할일은 framework의 scheme을 shared 해야합니다.
 <br>
 *Manage Schemes...* 메뉴를 실행합니다.
