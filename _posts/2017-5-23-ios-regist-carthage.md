@@ -157,7 +157,7 @@ carthage도 cocoapods와 마찬가지로 tag를 통해 버전 체크를 합니�
 터미널에서 아래 명령어로 carthage를 설치합시다.
 
 > brew update
-
+<br>
 > brew install carthage
 
 그리고 라이브러리를 다운로드 받고 확인해볼 폴더를 만들고
