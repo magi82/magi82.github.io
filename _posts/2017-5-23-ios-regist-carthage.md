@@ -59,11 +59,11 @@ Framework & Library 카테고리의 Cocoa Touch Framework를
 
 Product Name은 github에 올라간 repo와 동일하게 해주시면 됩니다.
 <br>
-*Include Unit Tests* 는 선택하시면 됩니다. 저는 추가하지 않겠습니다.
+*Include Unit Tests* 는 필요유무에 따라 선택하시면 됩니다.
+<br>
+저는 추가하지 않겠습니다.
 
 ![02](../images/2017-5-23-ios-regist-carthage/02.png)
-
-<br>
 
 ###### 자! 여기서 중요한 부분입니다.
 
