@@ -202,8 +202,8 @@ cocoapods의 *Podfile* 과 동일한 역할을 합니다.
 <br>
 각종 스크린샷도 많고 복잡해 보이지만 막상 해보면 생각보다 어렵지 않습니다.
 <br>
-다음 포스트는 github에서 무료 지원하는 travis CI를 적용 해보겠습니다.
+다음에는 github에 등록된 라이브러리에 travis CI를 적용 해보겠습니다.
 <br>
-다음에 뵙겠습니다.
+그럼 다음 포스팅때 뵙겠습니다.
 
 ![logo](../images/magi.png)
