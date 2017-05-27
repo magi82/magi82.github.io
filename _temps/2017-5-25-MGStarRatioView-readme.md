@@ -43,7 +43,7 @@ func StarRatingValueChanged(value: CGFloat) {
 ## Usage (xib)
 
 First, add `UIView`.<br>
-Register Custom Class as `StarRatingView` and register` Module` as `MGStarRatingView`.
+Register Custom Class as `StarRatingView` and register Module as `MGStarRatingView`.
 
 *Please be careful.*<br>
 If you type the spelling of `Type String` wrongly, it will be applied as the default type.<br>
@@ -64,10 +64,10 @@ public var type: StarRatingType
 // The current value.
 public var current: CGFloat
 
-// 별의 최대 갯수 입니다.
+// The maximum number of stars.
 public var max: Int
 
-// The maximum number of stars.
+// The spacing between stars.
 public var spacing: CGFloat
 
 // The size of the star.
