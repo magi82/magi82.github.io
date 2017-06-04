@@ -105,11 +105,8 @@ intrinsicContentSize 프로퍼티와 invalidateIntrinsicContentSize()
 <br>
 제가 만든 rating을 위한 custom view 라이브러리가 있습니다.
 
-> 혹시나 궁금해 하실까봐.. (그럴리가 없잖아..)
-
-> MGStarRatingView 라이브러리입니다.
-
-> https://github.com/magi82/MGStarRatingView
+> 혹시나 궁금해 하실까봐.. (그럴리가 없잖아..)<br>
+> [MGStarRatingView](https://github.com/magi82/MGStarRatingView) 라이브러리입니다. 
 
 ![02](../images/2017-6-4-ios-intrinsicContentSize/02.png)
 
