@@ -33,7 +33,7 @@ intrinsicContentSize를 가지고 있기 때문입니다.
 <br>
 빨간줄이 그어지지 않았군요! 오류가 없습니다.
 
-![01](../images/2017-6-4-ios-intrinsicContentSize/01.png)
+<img src="../images/2017-6-4-ios-intrinsicContentSize/01.png" width="240">
 
 <br>
 
@@ -106,7 +106,7 @@ intrinsicContentSize 프로퍼티와 invalidateIntrinsicContentSize()
 제가 만든 rating을 위한 custom view 라이브러리가 있습니다.
 
 > 혹시나 궁금해 하실까봐.. (그럴리가 없잖아..)<br>
-> [MGStarRatingView](https://github.com/magi82/MGStarRatingView) 라이브러리입니다. 
+> [MGStarRatingView](https://github.com/magi82/MGStarRatingView) 라이브러리입니다.
 
 ![02](../images/2017-6-4-ios-intrinsicContentSize/02.png)
 
