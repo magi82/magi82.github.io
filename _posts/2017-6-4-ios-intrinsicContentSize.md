@@ -39,7 +39,7 @@ intrinsicContentSize를 가지고 있기 때문입니다.
 
 물론 런타임에서도 잘 나옵니다.
 
-<img src="../images/2017-6-4-ios-intrinsicContentSize/02.png" width="480">
+<img src="../images/2017-6-4-ios-intrinsicContentSize/02.png" width="360">
 
 <br>
 
@@ -49,9 +49,11 @@ intrinsicContentSize를 가지고 있기 때문입니다.
 
 {% gist magi82/a15f3da4a2424d59b25d7c36fcf1c265 01.swift %}
 
+<br>
+
 이번에도 잘 나오는군요! 깔끔합니다. :)
 
-<img src="../images/2017-6-4-ios-intrinsicContentSize/03.png" width="480">
+<img src="../images/2017-6-4-ios-intrinsicContentSize/03.png" width="360">
 
 이렇게 내용이 변경되어도 auto layout이 제대로 적용되는 이유는
 <br>
@@ -93,9 +95,11 @@ UILabel에서 invalidateIntrinsicContentSize() 메소드가
 
 {% gist magi82/a15f3da4a2424d59b25d7c36fcf1c265 02.swift %}
 
+<br>
+
 아까와는 다르게 컨텐츠 크기만큼 view의 size가 늘어나지 않습니다.
 
-<img src="../images/2017-6-4-ios-intrinsicContentSize/04.png" width="480">
+<img src="../images/2017-6-4-ios-intrinsicContentSize/04.png" width="360">
 
 intrinsicContentSize 프로퍼티와 invalidateIntrinsicContentSize()
 <br>
@@ -108,11 +112,13 @@ intrinsicContentSize 프로퍼티와 invalidateIntrinsicContentSize()
 > 혹시나 궁금해 하실까봐.. (그럴리가 없잖아..)<br>
 > [MGStarRatingView](https://github.com/magi82/MGStarRatingView) 라이브러리입니다.
 
-<img src="../images/2017-6-4-ios-intrinsicContentSize/02.png" width="480">
+<img src="../images/2017-6-4-ios-intrinsicContentSize/02.png" width="360">
 
 intrinsicContentSize 프로퍼티는 아래와 같이 구현되어 있습니다.
 
 {% gist magi82/a15f3da4a2424d59b25d7c36fcf1c265 03.swift %}
+
+<br>
 
 런타임에서 별의 크기를 바꾸거나 간격을 조절 하는등
 <br>
@@ -122,7 +128,7 @@ invalidateIntrinsicContentSize() 메소드를 실행 해주지 않는다면
 <br>
 아래와 스크린샷과 같이 제대로 적용이 되지 않습니다.
 
-<img src="../images/2017-6-4-ios-intrinsicContentSize/05.png" width="480">
+<img src="../images/2017-6-4-ios-intrinsicContentSize/05.png" width="360">
 
 하지만 이렇게 view의 컨텐츠 크기가 바뀔때
 <br>
@@ -130,7 +136,9 @@ invalidateIntrinsicContentSize() 메소드를 실행해주면..
 
 {% gist magi82/a15f3da4a2424d59b25d7c36fcf1c265 04.swift %}
 
-<img src="../images/2017-6-4-ios-intrinsicContentSize/06.png" width="480">
+<br>
+
+<img src="../images/2017-6-4-ios-intrinsicContentSize/06.png" width="360">
 
 이렇게 제대로 적용이 됩니다.
 
