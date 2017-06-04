@@ -33,7 +33,7 @@ intrinsicContentSize를 가지고 있기 때문입니다.
 <br>
 빨간줄이 그어지지 않았군요! 오류가 없습니다.
 
-<img src="../images/2017-6-4-ios-intrinsicContentSize/01.png" width="240">
+<img src="../images/2017-6-4-ios-intrinsicContentSize/01.png" width="360">
 
 <br>
 
