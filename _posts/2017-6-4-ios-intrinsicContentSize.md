@@ -126,7 +126,7 @@ view의 크기와 관련된 메소드를 실행 했을때
 <br>
 invalidateIntrinsicContentSize() 메소드를 실행 해주지 않는다면
 <br>
-아래와 스크린샷과 같이 제대로 적용이 되지 않습니다.
+아래 스크린샷과 같이 제대로 적용이 되지 않습니다.
 
 <img src="../images/2017-6-4-ios-intrinsicContentSize/05.png" width="360">
 
