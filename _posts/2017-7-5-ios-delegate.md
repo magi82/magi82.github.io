@@ -116,15 +116,33 @@ msg.delegate = self
 이번에는 애플에서 구현된 델리게이트 프로토콜을 알아보겠습니다.<br>
 가장 많이 쓰인다고 생각되는 UI는 역시나 테이블뷰겠죠.<br>
 
-테이블뷰에는 두가지 델리게이트가 있습니다.<br>
-UITableViewDelegate, UITableDataSource 입니다.<br>
-위에서 이야기한 기억해야할 두가지중에서 테이블뷰가 들어간 뷰컨트롤러는<br>
-처리를 해야하는 객체 입니다.
+테이블뷰에는 테이블뷰관련 처리를 위한 두개의 델리게이트 프로토콜이 있습니다.<br>
+바로 UITableViewDelegate와 UITableDataSource 입니다.<br>
+테이블뷰가 들어간 뷰컨트롤러는 앞서 말한 두가지 기억해야할 객체중<br>
+처리를 해야하는 객체 입니다.<br>
+관련 코드를 보시죠.
 
-뷰컨트롤러에 델리게이트를 상속 받고 구현한 후에<br>
+먼저 DataSource에 관련된 프로토콜을 구현해보겠습니다.
+
+{% gist magi82/2fb1532765a1ca8cbee81fe7477fcbd6 source6.swift %}
+
+자 그리고 Delegate 프로토콜도 구현해보겠습니다.
+
+{% gist magi82/2fb1532765a1ca8cbee81fe7477fcbd6 source7.swift %}
+
+테이블뷰 처리를 위한 두개의 델리게이트 프로토콜을 살짝 설명 드리자면<br>
+애플에서는 실제 테이블뷰의 데이터를 처리하는 프로토콜과<br>
+그외 셀의 디스플레이나 행동을 처리하는 프로토콜 두개로 구현을 하도록<br>
+나누어 두었습니다.
+
+뷰컨트롤러에 델리게이트를 상속 받고 구현한 후에 마지막으로<br>
 처리하라고 시키는 객체(실제 테이블뷰)에 해당 델리게이트 객체를 넣어줍니다.<br>
 
-{% gist magi82/8d54c067fe39cf295b9e2e6a3c1384aa TableView.swift %}
+{% gist magi82/2fb1532765a1ca8cbee81fe7477fcbd6 source3.swift %}
+
+> 이 포스팅에서는 델리게이트에 대한 내용을 중점적으로 다루고 있습니다.<br>
+> 테이블뷰에 대한 코드의 전체부분은 테이블뷰 만드는 포스트에서<br>
+> 확인하시면 됩니다. [UITableView 구현](https://magi82.github.io/implement-uitableview-programmatically-in-swift/)
 
 <br>
 
