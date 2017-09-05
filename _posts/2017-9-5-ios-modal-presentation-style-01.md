@@ -261,7 +261,7 @@ alpha값을 세팅했지만 불투명하게 보여지는군요.
 
 이상 마기였습니다.
 
-![logo](../images/magi.png)
+![logo](https://magi82.github.io/images/magi.png)
 
 <br>
 
