@@ -231,7 +231,7 @@ SearchBar를 사용할때 예제를 검색해보면 많은 블로그에서
 <br>
 이 두가지 스타일은 위에서 설명한 스타일과 거의 똑같습니다.
 <br>
-다만 조금 다른점이 있습니다. 바로 뷰의 **alpha** 값이 적용이 됩니다.
+다만 조금 다른점이 있습니다. 바로 뷰의 **alpha** 처리가 가능합니다.
 
 어떻게 다른지 비교해보도록 하겠습니다.
 
@@ -247,7 +247,59 @@ alpha값을 세팅했지만 불투명하게 보여지는군요.
 
 <img src="../images/2017-0-5-ios-modal-presentation-style-01/overfullscreen.gif" width="240">
 
-이제 alpha값이 잘 적용 되는군요!!
+이제 alpha 처리가 잘 되는군요!!
+
+#### * 추가내용
+
+단순히 뷰의 alpha 처리가 가능하다는 설명으로는 미흡한거 같아서
+<br>
+추가로 fullScreen, currentContext 스타일과
+<br>
+overFullScreen, overCurrentContext 스타일의 차이점을
+<br>
+좀 더 자세하게 알아보도록 하겠습니다.
+
+fullScreen, currentContext 스타일은
+<br>
+뷰가 present 될때 지시하는 뷰컨트롤러의
+<br>
+뷰를 컨텍스트에서 날려 버립니다.
+
+하지만 overFullScreen, overCurrentContext 스타일은
+<br>
+뷰를 컨텍스트에서 날려버리지 않고 유지한 상태에서
+<br>
+그 위에 새로운 뷰를 present하기 때문에
+<br>
+새로운 뷰의 alpha값을 조절하면 뒤에 있는 뷰가 비쳐 보입니다.
+
+아래 예제를 보겠습니다.
+
+{% gist magi82/635333d7e4e16c750eb741fe17b44bf5 over1.swift %}
+
+컨텍스트에서 뷰가 날아가는 장면을 눈으로 쉽게 확인을 하기 위해서
+<br>
+임의로 뷰를 줄이고 window의 backgroundColor를 빨간색으로 바꿨습니다.
+<br>
+그리고 window에 label 하나를 추가 하였습니다.
+
+<img src="../images/2017-0-5-ios-modal-presentation-style-01/over1.gif" width="240">
+
+window에 추가된 label은 남아 있지만, 흰색의 작은 뷰는 사라집니다.
+<br>
+present 된 뷰는 alpha 값이 되어서 window의 backgroundColor로 세팅된
+<br>
+빨간색이 살짝 비쳐 보이는군요.
+
+자, 이번에는 over를 적용해 보도록 하겠습니다.
+
+{% gist magi82/635333d7e4e16c750eb741fe17b44bf5 over2.swift %}
+
+뒤에 있던 흰색의 뷰가 사라지지 않고 그대로 남아 있는 것을 확인 할수 있습니다.
+
+<img src="../images/2017-0-5-ios-modal-presentation-style-01/over2.gif" width="240">
+
+<br>
 
 ## 마치며..
 
