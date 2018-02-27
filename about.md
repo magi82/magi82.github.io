@@ -12,4 +12,4 @@ Gamebryo, UDK, Unreal Engine3, Unreal Engine4, Unity, Cocos2DX, Python, Android,
 
 ### Contact me
 
-[bkhwang82@gmail.com](mailto:bkhwang82@gmail.com)
+[devmagi82@gmail.com](mailto:devmagi82@gmail.com)

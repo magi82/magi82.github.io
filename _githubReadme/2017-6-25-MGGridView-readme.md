@@ -160,7 +160,7 @@ github "magi82/MGGridView ~> 0.1.1"
 
 ## Author
 
-magi82, bkhwang82@gmail.com
+magi82, devmagi82@gmail.com
 
 ## License
 

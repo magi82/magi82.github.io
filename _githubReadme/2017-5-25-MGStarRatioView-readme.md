@@ -107,7 +107,7 @@ github "magi82/MGStarRatingView"
 
 ## Author
 
-magi82, bkhwang82@gmail.com
+magi82, devmagi82@gmail.com
 
 ## License
 
