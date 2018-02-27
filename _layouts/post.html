@@ -7,16 +7,8 @@ layout: default
 
   <div class="entry">
     {{ content }}
+    {% include advertisements.html %}
   </div>
-
-  <h1>adfadsfasdfa</h1>
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-  <script>
-    (adsbygoogle = window.adsbygoogle || []).push({
-      google_ad_client: "ca-pub-5424591134833677",
-      enable_page_level_ads: true
-    });
-  </script>
 
   <div class="date">
     Written on {{ page.date | date: "%B %e, %Y" }}
