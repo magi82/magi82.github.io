@@ -90,7 +90,7 @@ myButton.rx.tap
 바로 스프레드시트 인데요.<br>
 스프레드시트에서도 반응형 프로그래밍을 할수 있습니다.
 
-![excel](../images/2018-3-27-ios-rxswift-01/excel.gif)
+![excel](https://magi82.github.io/images/2018-3-27-ios-rxswift-01/excel.gif)
 
 A3, A4의 내용이 바뀐다면,<br>
 A1이 반응해서 결과값이 바뀐다는것을 알수 있습니다.
