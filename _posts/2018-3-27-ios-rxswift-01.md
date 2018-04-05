@@ -160,4 +160,5 @@ Observable, Subscribe, Dispose에 대해서<br>
 
 #### 목차
 
-- [RxSwift에 대해서 알아보기(ReactiveX 에 대해서) - 01](https://magi82.github.io/2018-3-27-ios-rxswift-01/)
+- [RxSwift에 대해서 알아보기(ReactiveX에 대해서) - 01](https://magi82.github.io/2018-3-27-ios-rxswift-01/)
+- [RxSwift에 대해서 알아보기(Observable에 대해서) - 02](https://magi82.github.io/2018-4-6-ios-rxswift-02/)
