@@ -58,7 +58,7 @@ ReactiveX에서는 어떻게 관찰해야 할까요?<br>
 [http://reactivex.io/documentation/ko/observable.html](http://reactivex.io/documentation/ko/observable.html)
 
 > ReactiveX에서 Observer는 Observable을 구독한다.<br>
-> Obseravable이 배출하는 하나 또는 연속된 항목에<br>
+> Observable이 배출하는 하나 또는 연속된 항목에<br>
 > Observer는 반응한다. 
 
 정리를 해보도록 하겠습니다.<br>
