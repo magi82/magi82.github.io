@@ -5,14 +5,17 @@ comments: true
 tags: ios ReactiveX RxSwift RxCocoa Observable subscribe dispose disposeBag
 ---
 
-안녕하세요. 마기입니다.<br>
+안녕하세요. 당근마켓에서 iOS를 개발중인 마기입니다.
+
 자주 포스팅 하겠다던 각오는<br> 
 이직하게 되면서 새로운 환경에서 적응 한다고.. <br>
-정신이 없어서 이제서야 올리게 되었네요 ㅠㅠ <br>
-이제 좀 적응 되었으니 다시 각오를 다져 봅니다!!
+정신이 없어서 이제서야 올리게 되었네요 😭 <br>
+좋은 동료들을 만나 빠르게 적응 되고 있어서 <br>
+오랜만에 포스팅합니다.
+새해부터 다시 각오를 다져 봅니다!!
 
-이번 세번째 시간에는 두개의 <br>
-주제에 대해서 알아보도록 하겠습니다. <br>
+이번 세번째 시간에는 <br>
+두개의 주제에 대해서 알아보도록 하겠습니다. <br>
 subscribe와 dispose입니다. <br>
 먼저 subscribe에 대해 알아봅시다. 
 
@@ -35,26 +38,15 @@ subscribe는 observable의 stream을 관찰하고 구독 해서 받는 역할을
 
 아래 코드를 봅시다. 
 
-```swift
-Observable<String>.just("test")
-	.subscribe { event in
-		switch event {
-      case .next(let value):
-        print(value)
-      case .error(let error):
-        print(error)
-      case .completed:
-        print("completed")
-      }
-    }
-```
+{% gist magi82/a79bb41d3ce2cb6f668e0fa8880d6015 1.swift %}
 
 observable 코드의 subscribe 부분을 보면 <br>
 onNext, onError, onComplete 를 구독 받아서 <br>
 print 해주고 있습니다.
 
-자, 여기까지 진행을 했다면 아마 warning이 뜰겁니다.<br>
-왜냐하면 subscribe 메소드는 리턴 타입이 있기 때문이죠.<br>
+자, 만약 여기까지 코딩을 해보셨다면..<br>
+아마 xcode에서 warning이 뜰겁니다.<br>
+왜냐하면 subscribe 메소드는 반환 객체이 있기 때문이죠.<br>
 바로 disposable 이라는 객체인데요. <br>
 뭐 하는 녀석인지 이제부터 알아봅시다! 
 
@@ -70,8 +62,8 @@ disposable 에 대해서 의미를 찾아 보았습니다.
 살짝 어렵게 느껴질수도 있으니 바로 예시를 들어가며<br>
 이해를 해보도록 합시다. :)
 
-iOS 프로젝트를 개발을 한다면, 보통 뷰 컨트롤러 단위로<br>
-개발을 하게 됩니다. 뷰 컨트롤러마다 라이프 사이클이 존재를 하죠.
+iOS 프로젝트 개발을 한다면, 보통 뷰 컨트롤러 단위로<br>
+개발을 하게 됩니다.
 
 CustomViewController 이라는 뷰컨트롤러를 개발한다고 가정 해보죠.<br>
 기능 스펙이 하나 추가 되었습니다.<br>
@@ -81,23 +73,13 @@ CustomViewController 이라는 뷰컨트롤러를 개발한다고 가정 해보�
 자 이제 RxSwift에 입문 하였으니..<br>
 멋지게 RxSwift로 기능을 추가 해봅시다.
 
-```swift
-Observable<Int>.interval(1, scheduler: MainScheduler.instance)
-      .take(10)
-      .subscribe(onNext: { value in
-        print(value)
-      }, onError: { error in
-        print(error)
-      }, onCompleted: {
-        print("onCompleted")
-      }, onDisposed: {
-        print("onDisposed")
-      })
-```
-> interval, take 라는 새로운 메소드가 추가 되었습니다.
-> 간단하게 interval은 n초마다 정수 타입의 스트림이 emit 됩니다.
-> take는 parameter 만큼의 스트림을 허용 합니다.
-> 차후에 제대로 다룰 예정이니 이정도로 이해하고 넘어가면 될거 같습니다.
+{% gist magi82/a79bb41d3ce2cb6f668e0fa8880d6015 2.swift %}
+
+> interval, take 라는 새로운 메소드가 추가 되었습니다.<br>
+> 간단하게 interval은 n초마다 정수 타입의 스트림이 emit 됩니다.<br>
+> take는 parameter 만큼의 스트림을 허용 합니다.<br>
+> 차후에 제대로 다룰 예정이니<br>
+> 이정도로 이해하고 넘어가면 될거 같습니다.
 
 ![1](https://magi82.github.io/images/2019-1-20-ios-rxswift-03/1.png)
 
@@ -108,27 +90,11 @@ Observable<Int>.interval(1, scheduler: MainScheduler.instance)
 자기 할일을 다 하고 나서 completed 가 되면서 disposed<br>
 즉, 할일이 끝났으니 버려지는 겁니다.
 
-그런데 예외 상황이 발생 하였습니다.<br>
-바로 카운팅이 끝나기 전에 뷰 컨트롤러를 해제해 버린다면<br>
+그런데 예외 상황이 발생 할수도 있습니다.<br>
+카운팅이 끝나기 전에 뷰 컨트롤러를 해제해 버린다면<br>
 어떻게 될까요?
 
-```swift
-Observable<Int>.interval(1, scheduler: MainScheduler.instance)
-      .take(10)
-      .subscribe(onNext: { value in
-        print(value)
-      }, onError: { error in
-        print(error)
-      }, onCompleted: {
-        print("onCompleted")
-      }, onDisposed: {
-        print("onDisposed")
-      })
-
-  DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-    UIApplication.shared.keyWindow?.rootViewController = nil
-  }
-```
+{% gist magi82/a79bb41d3ce2cb6f668e0fa8880d6015 3.swift %}
 
 결과를 확인하기 위해 DispatchQueue를 이용해서 3초 뒤에 뷰 컨트롤러를<br>
 삭제 하였습니다.
@@ -153,30 +119,14 @@ Disposable 이라는 타입이 반환 됩니다.<br>
 이 타입으로 dispose를 시킬수 있을거 같군요 :)<br>
 자 테스트 해봅시다!
 
-```swift
-  let disposable = Observable<Int>.interval(1, scheduler: MainScheduler.instance)
-    .take(10)
-    .subscribe(onNext: { value in
-      print(value)
-    }, onError: { error in
-      print(error)
-    }, onCompleted: {
-      print("onCompleted")
-    }, onDisposed: {
-      print("onDisposed")
-    })
-    
-    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-      disposable.dispose()
-    }
-```
+{% gist magi82/a79bb41d3ce2cb6f668e0fa8880d6015 4.swift %}
 
 disposable이라는 프로퍼티에 subscribe 반환 객체를 가지고 있다가<br>
 3초뒤에 dispose 메소드를 실행 했습니다.
 
 ![4](https://magi82.github.io/images/2019-1-20-ios-rxswift-03/4.png)
 
-오오!! 3초뒤에 제대로 삭제가 되는군요.<br>
+오오!! 3초뒤에 제대로 dispose 되는군요.<br>
 반환된 disposable 객체를 가지고 있다 뷰 컨트롤러가 deinit 될때<br>
 dispose를 실행 하면 될거 같습니다.
 
@@ -192,7 +142,7 @@ disposable 컬렉션을 만들고 다 집어 넣은 다음<br>
 
 ![5](https://magi82.github.io/images/2019-1-20-ios-rxswift-03/5.png)
 
-Disposable에는 disposed(by bag: DisposeBag) 이라는 메소드가 존재 합니다.<br>
+Disposable에는 disposed(by:) 라는 메소드가 존재 합니다.<br>
 파라메터에 DisposeBag 객체가 들어가고 그 bag에 자신을 insert 하는군요.
 
 모든 disposable 객체에 disposed 를 해주면 해당 파라메터인<br>
@@ -200,45 +150,7 @@ disposeBag에 등록이 되고 disposeBag 객체가 해제 되면서<br>
 등록된 모든 disposable이 다같이 dispose 되어 버립니다.<br>
 확인 해보도록 할게요.
 
-```swift
-import UIKit
-
-import RxSwift
-
-class CustomViewController: UIViewController {
-
-  var disposeBag = DisposeBag()
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    
-    test()
-  }
-  
-  deinit {
-    print(“deinit CustomViewController”)
-  }
-
-  func test() {
-    Observable<Int>.interval(1, scheduler: MainScheduler.instance)
-      .take(10)
-      .subscribe(onNext: { value in
-        print(value)
-      }, onError: { error in
-        print(error)
-      }, onCompleted: {
-        print(“onCompleted”)
-      }, onDisposed: {
-        print(“onDisposed”)
-      })
-      .disposed(by: disposeBag)
-    
-    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-      UIApplication.shared.keyWindow?.rootViewController = nil
-    }
-  }
-}
-```
+{% gist magi82/a79bb41d3ce2cb6f668e0fa8880d6015 5.swift %}
 
 뷰 컨트롤러 로딩후 3초뒤에 뷰 컨트롤러를 해제 해보겠습니다.
 
@@ -260,9 +172,7 @@ disposeBag 프로퍼티에 새로운 DisposeBag 객체를 넣어주면 끝인거
 
 바로 이렇게요.
 
-```swift
-disposeBag = DisposeBag()
-```
+{% gist magi82/a79bb41d3ce2cb6f668e0fa8880d6015 6.swift %}
 
 <br>
 

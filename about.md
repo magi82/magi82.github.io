@@ -4,11 +4,11 @@ title: About
 permalink: /about/
 ---
 
-Game Programmer, Mobile Programmer
+당근마켓 iOS developer
 
 ### More Information
 
-Gamebryo, UDK, Unreal Engine3, Unreal Engine4, Unity, Cocos2DX, Python, Android, IOS, Swift
+Gamebryo, UDK, Unreal Engine3, Unreal Engine4, Unity, Cocos2DX, Python, Android, IOS, Swift, RxSwift
 
 ### Contact me
 
