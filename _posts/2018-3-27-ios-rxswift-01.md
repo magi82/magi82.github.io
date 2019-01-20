@@ -1,6 +1,6 @@
 ---
 layout: post
-title: RxSwift에 대해서 알아보기(ReactiveX 에 대해서) - 01
+title: RxSwift 알아보기(ReactiveX 에 대해서) - 01
 comments: true
 tags: ios ReactiveX RxSwift RxCocoa
 ---
@@ -160,5 +160,6 @@ Observable, Subscribe, Dispose에 대해서<br>
 
 #### 목차
 
-- [RxSwift에 대해서 알아보기(ReactiveX에 대해서) - 01](https://magi82.github.io/ios-rxswift-01/)
-- [RxSwift에 대해서 알아보기(Observable에 대해서) - 02](https://magi82.github.io/ios-rxswift-02/)
+- [RxSwift 알아보기(ReactiveX에 대해서) - 01](https://magi82.github.io/ios-rxswift-01/) 
+- [RxSwift 알아보기(Observable에 대해서) - 02](https://magi82.github.io/ios-rxswift-02/) 
+- [RxSwift 알아보기(subscribe, dispose에 대해서) - 03](https://magi82.github.io/ios-rxswift-03/) 

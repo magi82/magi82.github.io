@@ -1,245 +1,290 @@
 ---
 layout: post
-title: RxSwift에 대해서 알아보기(Observable에 대해서) - 02
+title: RxSwift 알아보기(subscribe, dispose에 대해서) - 03
 comments: true
-tags: ios ReactiveX RxSwift RxCocoa Observable
+tags: ios ReactiveX RxSwift RxCocoa Observable subscribe dispose disposeBag
 ---
 
-안녕하세요 마기입니다.<br>
-RxSwift 포스팅 두번째 시간 입니다.<br>
-이번에는 Observable에 대해서 알아보도록 하겠습니다.
+안녕하세요. 마기입니다.<br>
+자주 포스팅 하겠다던 각오는<br> 
+이직하게 되면서 새로운 환경에서 적응 한다고.. <br>
+정신이 없어서 이제서야 올리게 되었네요 ㅠㅠ <br>
+이제 좀 적응 되었으니 다시 각오를 다져 봅니다!!
 
-원래는 Observable, Subscribe, Dispose<br>
-세가지에 대해서 알아보려고 하였는데<br>
-Observable에 대한 내용이 아주 중요한 기본이고 내용도 많아서<br>
-나눠서 포스팅 하려고 합니다.
-
-하지만 너무 겁먹지 않으셔도 됩니다.<br>
-차근차근 하다보면 뭐야.. 별거 아니네 라고 생각하실 겁니다. 😀 <br>
-이제 같이 가보시죠!
+이번 세번째 시간에는 두개의 <br>
+주제에 대해서 알아보도록 하겠습니다. <br>
+subscribe와 dispose입니다. <br>
+먼저 subscribe에 대해 알아봅시다. 
 
 <br>
 
-#### 시작하기전에..
+#### subscribe
 
-본론으로 들어가기전에 한가지 생각해 볼게 있습니다.<br>
-이전 포스팅에서 알게된 reactive과 observer..<br>
-즉 반응과 관찰에 대해서 한번 생각해보겠습니다.
+언제나 그랬듯이 사전적으로 어떤 뜻인지 먼저 알아보겠습니다. 
 
-어떠한 이벤트 혹은 상태 또는 값 등등..<br>
-어떠한 스트림을 관찰하고 반응한다고 했었는데요.<br>
-어떤식으로 관찰을 해야 할까요..
+> subscribe : 구독하다
 
-예를 들어서 정수형 프로퍼티를 관찰하겠다 라고 한다면...<br>
-어떤 방법으로 관찰을 할수 있을까요?
+유튜브 보면 bj들이 항상 마지막에 하는 말이 있습니다.<br>
+구독해주세요~! 구독하면 어떻게 되죠?<br>
+그 bj가 영상을 올리면 제가 볼수있게 알림이 옵니다. 
 
-스위프트에서라면 이렇게 만들어야 합니다.
+네 바로 그 구독입니다! <br>
+첫번째 observable을 설명하는 글에서 이미 잠깐 한줄 설명 한적이 있는데요. <br>
+observable이 뭐라고 했었죠? stream을 관찰한다고 했죠? <br>
+subscribe는 observable의 stream을 관찰하고 구독 해서 받는 역할을 합니다. 
 
-{% gist magi82/9be2a494be8fe254b41824bd21140bba 1.swift %}
+아래 코드를 봅시다. 
 
-ReactiveX에서는 어떻게 관찰해야 할까요?<br>
-이번시간에 알아보게 될 Observable이 바로 그것입니다.<br>
-자 이제 시작해보도록 하겠습니다.
-
-<br>
-
-#### Observable이란 무엇인가?
-
-언제나 그랬듯이 사전적 의미부터 한번 알아보겠습니다.
-
-> Observable : 관찰 가능한, 관찰할수 있는
-
-의미만 검색해봐도 잘 알수 있습니다. 아주 직관적이네요!<br>
-관찰 가능한 녀석입니다.
-
-이번에는 ReactiveX 공식 사이트에 가서 좀더 알아보겠습니다.<br>
-친절하게도 한국어 번역도 되어 있습니다.
-
-[http://reactivex.io/documentation/ko/observable.html](http://reactivex.io/documentation/ko/observable.html)
-
-> ReactiveX에서 Observer는 Observable을 구독한다.<br>
-> Observable이 배출하는 하나 또는 연속된 항목에<br>
-> Observer는 반응한다. 
-
-정리를 해보도록 하겠습니다.<br>
-ReactiveX는 Observable이라는 객체를 이용해서<br>
-값을 배출 할수 있고<br>
-Observable에서 배출해주는 값을 관찰하고 반응합니다.<br>
-좀더 자세히 알아봅시다.
-
-<br>
-
-#### next, error, complete
-
-Observable은 행동 규칙이 있습니다.<br>
-next, error, complete인데요.<br>
-각각 행동에 대해서 알아보도록 하겠습니다.
-
-위에서 말씀드렸듯이 Observable은 하나 또는 연속된<br>
-항목을 배출합니다.<br>
-바로 next인데요!<br>
-next 스트림을 통해서 연속된 값들을 배출하고<br>
-옵저버는 next 스트림을 관찰 및 구독해서<br>
-원하는 행동을 하게 됩니다.
-
-error 스트림은 키워드 그대로<br>
-값을 배출하다가 에러가 생기면 error를 배출한다음<br>
-해당 Observable은 스트림을 멈추게 됩니다.
-
-complete는 Observable의 next가 더이상 배출하지 않으면..<br>
-즉 모든 값을 다 배출하면 complete가 됩니다.
-
-여기서 기억해야할 부분이 있습니다.<br>
-바로 error와 complete인데요<br>
-스트림 중간에 에러가 발생하게 되면<br>
-complete가 되는게 아니라 그냥<br>
-말그대로 멈춥니다.<br>
-즉, erorr가 발생하면 complete은 발생하지 않습니다.
-
-아래 스크린샷은 Observable을 설명하고 있는 마블 다이어그램입니다.
-
-![1](https://magi82.github.io/images/2018-4-6-ios-rxswift-02/1.png)
-
-[http://rxmarbles.com](http://rxmarbles.com) 라는 홈페이지에 가면<br>
-각종 오퍼레이터들을 설명하는 다이어그램을 참고 할수 있습니다.
-
-<br>
-
-#### Observable 만들기
-
-이론만 보고 있으니 이제 슬슬 지겨워지는군요.<br>
-이제 한번 직접 Observable을 만들어 보도록 하겠습니다.
-
-그전에 RxSwift 라이브러리를 설치하도록 하겠습니다.
-
-[https://github.com/ReactiveX/RxSwift](https://github.com/ReactiveX/RxSwift)
-
-해당 깃허브 주소를 가면 인스톨 정보를 알수 있는데요.<br>
-저는 cocoapods를 사용해서 설치하도록 하겠습니다.
-
-```
-pod 'RxSwift', '~> 4.0'
-pod 'RxCocoa', '~> 4.0’
+```swift
+Observable<String>.just("test")
+	.subscribe { event in
+		switch event {
+      case .next(let value):
+        print(value)
+      case .error(let error):
+        print(error)
+      case .completed:
+        print("completed")
+      }
+    }
 ```
 
-Podfile에 위와 같이 등록하고 인스톨 하겠습니다.
+observable 코드의 subscribe 부분을 보면 <br>
+onNext, onError, onComplete 를 구독 받아서 <br>
+print 해주고 있습니다.
 
-설치가 끝났으면 이제 Observable을 만들어 보겠습니다.<br>
-정수타입의 배열을 입력 받아서 각 엘리멘트를 체크 해보는<br>
-Observable을 만들어 보겠습니다.
-
-배열의 엘리멘트중에 0이 나오면 에러가 나는<br>
-Observable을 만들어 봅시다.
-사실 실제 개발할때 전혀 필요 없는 주제이지만,<br>
-Observable에 대해서 이해하기에는 괜찮은 주제라고 생각합니다. 😀
-
-rx에서 지원하는 오퍼레이터를 사용해도 되지만<br>
-Observable의 특성을 공부하기 위해<br>
-오퍼레이터 사용 없이 만들어 보겠습니다.
-
-{% gist magi82/9be2a494be8fe254b41824bd21140bba 2.swift %}
-
-생소한 코드지만 한줄 한줄 천천히 해석 해보도록 합시다.
-
-먼저 items라는 정수 타입의 배열을 파라메터로 받고<br>
-정수 제네릭 타입의 Observable 객체를 리턴하는<br>
-checkArrayObservable 이라는 함수를 만들었습니다.
-
-자 이제 리턴 해야할 Observable을 만들어 봅시다.
-
-Observable은 create라는 메소드를 지원합니다.<br>
-해당 메소드는 observer를 파라메터로 받고<br>
-Disposable 객체를 리턴하는 클로저를 입력 받습니다.
-
-{% gist magi82/9be2a494be8fe254b41824bd21140bba 3.swift %}
-
-observer 파라메터는 몇가지 메소드를 지원하는데요.<br>
-onNext, onError, onCompleted 입니다.
-
-배열인 items를 순환하면서<br>
-배열의 엘리멘트가 0이면 onError 메소드를 통해<br>
-에러를 흘려보내주고, 0이 아니면 onNext 메소드를 이용해서<br>
-각 엘리멘트를 next로 흘려줍니다.
-
-로그를 편하게 확인하기 위해 sleep 함수를 사용하여<br>
-1초마다 체크하게 만들었습니다.
-
-{% gist magi82/9be2a494be8fe254b41824bd21140bba 4.swift %}
-
-모든 순환이 끝나면 onCompleted 메소드를 호출하여<br>
-completed 되었다는걸 알려줍니다.
-
-{% gist magi82/9be2a494be8fe254b41824bd21140bba 5.swift %}
-
-Disposable 객체에 대해서는 차후에 자세히 알아보도록 하고<br>
-일단은 이렇게 해야한다고 넘어가도록 합시다.
-
-자 이제 Observable을 만들었습니다.<br>
-제대로 동작하는지 확인해보도록 합시다.
+자, 여기까지 진행을 했다면 아마 warning이 뜰겁니다.<br>
+왜냐하면 subscribe 메소드는 리턴 타입이 있기 때문이죠.<br>
+바로 disposable 이라는 객체인데요. <br>
+뭐 하는 녀석인지 이제부터 알아봅시다! 
 
 <br>
 
-#### Observable 확인하기
+#### disposable
 
-Observable이 제대로 동작되는지 확인하기 위해서는<br>
-구독을 해봐야 하겠죠?
+disposable 에 대해서 의미를 찾아 보았습니다.
 
-{% gist magi82/9be2a494be8fe254b41824bd21140bba 6.swift %}
+> disposable : 처분할 수 있는, 사용후 버릴 수 있는
 
-Observable은 subscribe라는 메소드를 지원합니다.
+무엇을 처분 한다는거지..?<br>
+살짝 어렵게 느껴질수도 있으니 바로 예시를 들어가며<br>
+이해를 해보도록 합시다. :)
 
-자 이제 너무 자주 나와서 외울거 같은 키워드들이 나오네요.<br>
-next, error, completed를 구독 및 관찰하다가<br>
-해당 값을 배출하게 되면 값을 print 합니다.
+iOS 프로젝트를 개발을 한다면, 보통 뷰 컨트롤러 단위로<br>
+개발을 하게 됩니다. 뷰 컨트롤러마다 라이프 사이클이 존재를 하죠.
 
-위 코드는 아래와 같은 결과를 보여줍니다.<br>
-배열을 순환하는 도중에 0을 발견하고<br>
-error 시그널을 흘려주면서 종료되었군요.
+CustomViewController 이라는 뷰컨트롤러를 개발한다고 가정 해보죠.<br>
+기능 스펙이 하나 추가 되었습니다.<br>
+내용은 뷰컨트롤러가 화면에 보여지면 10초동안 1초마다 카운트 다운을<br>
+화면에 보여주는 기능입니다.
 
-![2](https://magi82.github.io/images/2018-4-6-ios-rxswift-02/2.png)
+자 이제 RxSwift에 입문 하였으니..<br>
+멋지게 RxSwift로 기능을 추가 해봅시다.
 
-그리고 배열을 [4, 3, 1, 5, 2] 라고 넣으면..
+```swift
+Observable<Int>.interval(1, scheduler: MainScheduler.instance)
+      .take(10)
+      .subscribe(onNext: { value in
+        print(value)
+      }, onError: { error in
+        print(error)
+      }, onCompleted: {
+        print("onCompleted")
+      }, onDisposed: {
+        print("onDisposed")
+      })
+```
+> interval, take 라는 새로운 메소드가 추가 되었습니다.
+> 간단하게 interval은 n초마다 정수 타입의 스트림이 emit 됩니다.
+> take는 parameter 만큼의 스트림을 허용 합니다.
+> 차후에 제대로 다룰 예정이니 이정도로 이해하고 넘어가면 될거 같습니다.
 
-![3](https://magi82.github.io/images/2018-4-6-ios-rxswift-02/3.png)
+![1](https://magi82.github.io/images/2019-1-20-ios-rxswift-03/1.png)
 
-이렇게 배열을 끝까지 순환하고 completed를 출력하였습니다.
+자! 콘솔창의 로그가 이렇게 출력 되었습니다.<br>
+영상이 아니다보니 시간은 확인이 안되지만 1초마다 정수가 찍히다가<br>
+10번이 찍힌다음 completed와 disposed가 차례대로 출력 되었습니다.
 
-위 코드중
+자기 할일을 다 하고 나서 completed 가 되면서 disposed<br>
+즉, 할일이 끝났으니 버려지는 겁니다.
 
-{% gist magi82/9be2a494be8fe254b41824bd21140bba 7.swift %}
+그런데 예외 상황이 발생 하였습니다.<br>
+바로 카운팅이 끝나기 전에 뷰 컨트롤러를 해제해 버린다면<br>
+어떻게 될까요?
 
-이 부분도 차후 자세히 알아보도록 하겠습니다.
+```swift
+Observable<Int>.interval(1, scheduler: MainScheduler.instance)
+      .take(10)
+      .subscribe(onNext: { value in
+        print(value)
+      }, onError: { error in
+        print(error)
+      }, onCompleted: {
+        print("onCompleted")
+      }, onDisposed: {
+        print("onDisposed")
+      })
 
-아래 소스는 전체 소스 입니다.
+  DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+    UIApplication.shared.keyWindow?.rootViewController = nil
+  }
+```
 
-{% gist magi82/9be2a494be8fe254b41824bd21140bba total.swift %}
+결과를 확인하기 위해 DispatchQueue를 이용해서 3초 뒤에 뷰 컨트롤러를<br>
+삭제 하였습니다.
+
+![2](https://magi82.github.io/images/2019-1-20-ios-rxswift-03/2.png)
+
+3초뒤에 뷰 컨트롤러를 해제 되면서 deinit이 되었다는 로그가 출력 되었음에도<br>
+끝까지 카운트가 진행 됩니다.<br>
+이런 결과를 원하는 개발자는 없을 겁니다. 어떻게 해야 할까요?
+
+<br>
+
+#### dispose, disposeBag
+
+앞서 이야기 했듯이 observable을 subscribe를 하면<br>
+Disposable 이라는 타입이 반환 됩니다.<br>
+이 타입에 대해서 알아 보겠습니다.
+
+![3](https://magi82.github.io/images/2019-1-20-ios-rxswift-03/3.png)
+
+해당 프로토콜 타입은 dispose 라는 메소드를 가지고 있습니다.<br>
+이 타입으로 dispose를 시킬수 있을거 같군요 :)<br>
+자 테스트 해봅시다!
+
+```swift
+  let disposable = Observable<Int>.interval(1, scheduler: MainScheduler.instance)
+    .take(10)
+    .subscribe(onNext: { value in
+      print(value)
+    }, onError: { error in
+      print(error)
+    }, onCompleted: {
+      print("onCompleted")
+    }, onDisposed: {
+      print("onDisposed")
+    })
+    
+    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+      disposable.dispose()
+    }
+```
+
+disposable이라는 프로퍼티에 subscribe 반환 객체를 가지고 있다가<br>
+3초뒤에 dispose 메소드를 실행 했습니다.
+
+![4](https://magi82.github.io/images/2019-1-20-ios-rxswift-03/4.png)
+
+오오!! 3초뒤에 제대로 삭제가 되는군요.<br>
+반환된 disposable 객체를 가지고 있다 뷰 컨트롤러가 deinit 될때<br>
+dispose를 실행 하면 될거 같습니다.
+
+#### disposeBag
+
+자 그런데.. 만약 구독 받는 observable들이 여러개라면<br>
+좀 귀찮을수도 있을거 같네요.<br>
+disposable 컬렉션을 만들고 다 집어 넣은 다음<br>
+뷰 컨트롤러가 deinit 될때 dispose를 해주면 되지만<br>
+귀찮습니다.
+
+이때 사용하게 되는것이 바로 DisposeBag 입니다.
+
+![5](https://magi82.github.io/images/2019-1-20-ios-rxswift-03/5.png)
+
+Disposable에는 disposed(by bag: DisposeBag) 이라는 메소드가 존재 합니다.<br>
+파라메터에 DisposeBag 객체가 들어가고 그 bag에 자신을 insert 하는군요.
+
+모든 disposable 객체에 disposed 를 해주면 해당 파라메터인<br>
+disposeBag에 등록이 되고 disposeBag 객체가 해제 되면서<br>
+등록된 모든 disposable이 다같이 dispose 되어 버립니다.<br>
+확인 해보도록 할게요.
+
+```swift
+import UIKit
+
+import RxSwift
+
+class CustomViewController: UIViewController {
+
+  var disposeBag = DisposeBag()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    
+    test()
+  }
+  
+  deinit {
+    print(“deinit CustomViewController”)
+  }
+
+  func test() {
+    Observable<Int>.interval(1, scheduler: MainScheduler.instance)
+      .take(10)
+      .subscribe(onNext: { value in
+        print(value)
+      }, onError: { error in
+        print(error)
+      }, onCompleted: {
+        print(“onCompleted”)
+      }, onDisposed: {
+        print(“onDisposed”)
+      })
+      .disposed(by: disposeBag)
+    
+    DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+      UIApplication.shared.keyWindow?.rootViewController = nil
+    }
+  }
+}
+```
+
+뷰 컨트롤러 로딩후 3초뒤에 뷰 컨트롤러를 해제 해보겠습니다.
+
+![6](https://magi82.github.io/images/2019-1-20-ios-rxswift-03/6.png)
+
+오~! 3초뒤에 뷰 컨트롤러가 해제 되면서 disposeBag 프로퍼티도 같이 해제 되고<br>
+그에 따라 등록된 disposable도 dispose 되었군요.<br>
+만족스러운 결과 입니다.
+
+여기서 한가지 내용을 추가 하겠습니다.<br>
+위에 코드를 보면 disposeBag 프로퍼티를 선언할때<br>
+let이 아닌 var로 선언을 하였습니다. 왜 그럴까요?
+
+disposeBag이 해제 되면 모든 disposable이 dispose 되는 원리를<br>
+개발도중 사용할수 있습니다.
+
+subscribe 중이던 disposable을 초기화 하고 싶으면<br>
+disposeBag 프로퍼티에 새로운 DisposeBag 객체를 넣어주면 끝인거죠.
+
+바로 이렇게요.
+
+```swift
+disposeBag = DisposeBag()
+```
 
 <br>
 
 #### 마치며..
 
-자 이번시간에는 Observable에 대해 알아보고<br>
-별로 쓸데가 많지 않은 주제이지만<br>
-Observable의 이해를 돕기위해<br>
-배열의 엘리멘트를 체크 하는 Observable을 만들어서<br>
-확인을 해봤습니다.
+이번 시간에는 subscribe와 dispose 에 대해 알아 보았습니다.<br>
+두가지 주제는 사실 간단하다면 아주 간단한 개념이라<br>
+내용이 길지 않을거라 생각 했지만..<br>
+이해하기 쉽게 자세히 작성하려다보니 생각보다 길어졌습니다.
 
-이해가 가신분들도 계시고 <br>
-아직도 햇갈리고 어려운 분들도 계실겁니다.<br>
-하지만 차근차근 하다보면 당연하다는 듯이 사용할수 있을겁니다. 😆
+다음 시간 부터는 RxSwift의 operator를 하나하나 알아보도록 하겠습니다.
 
-다음 시간에는 차후 알아보기로 했던<br>
-Subscribe, Dispose에 대해서 알아보도록 하겠습니다.
+이상 마기였습니다. 
 
-이상 마기였습니다.
+![logo]( [https://magi82.github.io/images/magi.png](https://magi82.github.io/images/magi.png) ) 
 
-![logo](https://magi82.github.io/images/magi.png)
+<br> 
 
-<br>
-
----
+— 
 
 #### 목차
 
-- [RxSwift에 대해서 알아보기(ReactiveX에 대해서) - 01](https://magi82.github.io/ios-rxswift-01/)
-- [RxSwift에 대해서 알아보기(Observable에 대해서) - 02](https://magi82.github.io/ios-rxswift-02/)
+- [RxSwift 알아보기(ReactiveX에 대해서) - 01](https://magi82.github.io/ios-rxswift-01/) 
+- [RxSwift 알아보기(Observable에 대해서) - 02](https://magi82.github.io/ios-rxswift-02/) 
+- [RxSwift 알아보기(subscribe, dispose에 대해서) - 03](https://magi82.github.io/ios-rxswift-03/) 
