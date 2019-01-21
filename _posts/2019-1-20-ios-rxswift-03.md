@@ -5,7 +5,7 @@ comments: true
 tags: ios ReactiveX RxSwift RxCocoa Observable subscribe dispose disposeBag
 ---
 
-안녕하세요. 당근마켓에서 iOS를 개발중인 마기입니다.
+안녕하세요. 당근마켓에서 iOS 앱을 개발중인 마기입니다.
 
 자주 포스팅 하겠다던 각오는<br> 
 이직하게 되면서 새로운 환경에서 적응 한다고.. <br>
