@@ -187,7 +187,7 @@ disposeBag 프로퍼티에 새로운 DisposeBag 객체를 넣어주면 끝인거
 
 이상 마기였습니다. 
 
-![logo]( [https://magi82.github.io/images/magi.png](https://magi82.github.io/images/magi.png) ) 
+![logo](https://magi82.github.io/images/magi.png)
 
 <br> 
 
